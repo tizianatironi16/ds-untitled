@@ -1,0 +1,313 @@
+/* App shell */
+
+.app-root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f4f7;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.phone-frame {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  max-width: 100%;
+  max-height: 100vh;
+  background: #ffffff;
+  border-radius: 32px;
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile: Full screen, no frame */
+@media screen and (max-width: 480px) {
+  .app-root {
+    padding: 0;
+    background: #ffffff;
+    align-items: stretch;
+  }
+
+  .phone-frame {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+/* Status bar */
+
+.status-bar {
+  position: relative;
+  height: 47px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 8px 16px 6px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.status-time {
+  position: relative;
+}
+
+.status-right {
+  position: absolute;
+  right: 16px;
+  top: 14px;
+  width: 78px;
+  height: 13px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #101828 0%,
+    #101828 30%,
+    #101828 60%,
+    #101828 100%
+  );
+  opacity: 0.1;
+}
+
+/* Header */
+
+.phone-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  height: 56px;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Inter',
+    sans-serif;
+}
+
+.icon-button {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  line-height: 1;
+  padding: 4px 8px;
+  cursor: pointer;
+  color: #101828;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(16, 24, 40, 0.1);
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #101828;
+}
+
+/* Progress steps */
+
+.progress-steps {
+  position: relative;
+  padding: 24px 40px 0;
+  box-sizing: border-box;
+}
+
+.progress-line {
+  position: absolute;
+  top: 34px;
+  left: 72px;
+  right: 72px;
+  height: 2px;
+  background: #eaecf0;
+}
+
+.progress-line--active {
+  right: 50%;
+  background: #399289;
+}
+
+.progress-dots {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.step {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step--done {
+  background: #399289;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+}
+
+.step--current {
+  background: #399289;
+}
+
+.step--upcoming {
+  background: #f9fafb;
+  border: 1.5px solid #eaecf0;
+}
+
+.step-check {
+  font-size: 16px;
+}
+
+.step-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.step--upcoming .step-dot {
+  background: #98a2b3;
+}
+
+/* Content */
+
+.phone-content {
+  flex: 1;
+  padding: 32px 16px 0;
+  box-sizing: border-box;
+}
+
+.copy-block {
+  margin-bottom: 32px;
+}
+
+.display-heading {
+  margin: 0 0 16px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: 600;
+  color: #101828;
+}
+
+.body-large {
+  margin: 0 0 24px;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 400;
+  color: #1d2939;
+}
+
+.input-field {
+  display: block;
+}
+
+.input-element {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #d0d5dd;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #101828;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+}
+
+/* Prevent zoom on input focus on iOS */
+@media screen and (max-width: 480px) {
+  .input-element {
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+}
+
+.input-element::placeholder {
+  color: #667085;
+}
+
+/* Bottom area */
+
+.bottom-area {
+  padding: 24px 16px 16px;
+  box-sizing: border-box;
+}
+
+.cta-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #399289;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: rgba(57, 146, 137, 0.3);
+}
+
+.cta-arrow {
+  font-size: 16px;
+}
+
+.home-indicator-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 21px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+}
+
+.home-indicator {
+  width: 134px;
+  height: 5px;
+  border-radius: 100px;
+  background: #000000;
+}
+
+/* Accessibility helpers */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
